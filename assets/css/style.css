@@ -20,10 +20,9 @@ a:hover	{color:#225799; text-decoration:none;}
 #header		{background:#DADADA; padding:10px; text-align: center;}
 #header-image		{max-width: 100%; max-height: 100%;}
 #content	{float:left; padding:20px 10px 0; line-height:160%; }
-#news		{float:right; width:250px; padding:20px 0; line-height:140%; text-align:justify; }
-.newsItem	{padding:20px 20px 5px 20px; background:#FEFFD5; border:1px solid #FFEB70; font-size:90%; margin-bottom:20px; }
-#footer		{clear:both; width:100%; font-size:80%; background:#DADADA; padding:20px 0 5px 0; text-align:left; border-top:2px solid #2765AF; }
-#copyright	{float:right; }
+#post {padding-bottom:15px; }
+#main-cta		{font-size: 30pt; text-decoration: none;}
+#footer		{clear:both; width:100%; font-size:80%; background:#DADADA; padding:5px 0 5px 0; text-align:center; border-top:2px solid #2765AF; }
 
 
 /*headings*/
