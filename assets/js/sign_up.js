@@ -2,7 +2,7 @@
 // RP: john, you know I will! when have I not?
 // JD: just saying rick, if you push this live without making sure it's clean, gray will be PISSED
 // RP: what's he gonna do? kill me? lol
-// JD: there are things worse than death rick, you should know that by now.  just make sure storefront is buttoned up, seriously
+// JD: there are things worse than death rick, you should know that by now.	just make sure storefront is buttoned up, seriously
 
 $( document ).ready(function() {
 	$("#sf-signup").on("click", function(e) {
@@ -27,8 +27,7 @@ $( document ).ready(function() {
 		if (subjectEmail.length <= 5 || isEmail(subjectEmail) === false) {
 			return alert("You must provide a valid email address");
 		}
-		var serializedForm = $("form").serialize();
-		// TODO: actually post the form via AJAX
+		$("#sf-form").submit();
 	});
 });
 

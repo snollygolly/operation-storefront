@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/snollygolly/operation-storefront#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "co": "^4.6.0",
+    "cradle": "^0.7.1",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
     "koa-generic-session": "^1.10.0",
@@ -31,6 +33,7 @@
     "koa-passport": "^1.2.0",
     "koa-router": "^5.3.0",
     "koa-static-folder": "^0.1.6",
+    "node-uuid": "^1.4.7",
     "passport-github": "^1.0.0"
   },
   "devDependencies": {
