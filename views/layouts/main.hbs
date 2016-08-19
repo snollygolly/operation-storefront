@@ -12,27 +12,15 @@
 <div id="container">
 	<div id="holder" class="clearfix">
 		<div id="logo">
-			<h1>Business Design</h1>
+			<h1>{{get_name}} <img src="/assets/images/logo.gif"></h1>
 	  </div>
 		{{> navbar}}
-		<div id="header"></div>
-		<div id="content">
-			<h1>Business Design 2007. Propelling your business into the 21st Century with a fresh, clean Web site template.</h1>
-			<p>Lovely. A nice clean design with no <a href="http://validator.w3.org/check?uri=referer" target="_blank" title="Opens HTML Validator Link in a New Window">HTML Validation errors</a> and only one <a href="http://jigsaw.w3.org/css-validator/validator?profile=css2&amp;warning=2&amp;uri=http%3A%2F%2Fwww.sitecreative.net%2Fportfolio%2Fbusiness2007%2F" target="_blank" title="Opens link to CSS Validator in a New Window">CSS error</a>, and a few tiny warnings. The focus with this design was to create something professional with a modern feel. The coding is of a good standard, with only one extra div for structural purposes.</p>
-			<p>My previous designs, under the guise of NOWdesign at various Open Source Web design template sites, has led to over fifty thousand downloads. This design itself is intended to replace the most popular of those designs, 'Business Design' (<a href="http://www.oswd.org/design/preview/id/1965/" target="_blank" title="Opens link to template download page in New Window">oswd.org</a> &amp; <a href="http://www.openwebdesign.org/viewdesign.phtml?id=1965&amp;referer=%2Fbrowse.php%3Fpage%3D1%26sort%3Ddownloadsdesc" target="_blank" title="Opens link to template download page in New Window">OpenWebDesign.org</a>).</p>
-			<p>My name is <a href="http://www.farstyle.com" target="_blank" title="Opens link to FarStyle.com in a New Window">Tjobbe Andrews</a>, my portfolio site at <a href="http://www.sitecreative.net" target="_blank" title="Opens link to SiteCreative.net in a New Window">SiteCreative</a> has more templates. For information ab0out me, visit my personal Web site.</p>
-			<p>Enjoy the design!</p>
+		<div id="header">
+			<img id="header-image" src="/assets/images/header_home.jpg">
 		</div>
-		<div id="news">
-			<div class="newsItem">
-				<h1>Copyright</h1>
-				<p>Please be so kind as to leave the copyright message in the footer intact, if you must remove it, I would still appreciate a link to my site.</p>
-			</div>
-			<div class="newsItem">
-				<h1>Other info</h1>
-				<p>You are free to use this design for anythign you wish. I do ask that the &quot;design by sitecreative&quot; stays in the footer with a link back to my site. Please don't sell it or re-distribute it. </p>
-			</div>
-	  </div>
+		<div id="content">
+			{{{body}}}
+		</div>
 	</div>
 	{{> footer}}
 </div>
