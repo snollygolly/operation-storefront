@@ -28,7 +28,7 @@ module.exports.jobs = function* jobs() {
 
 module.exports.signUp = function* signUp() {
 	yield this.render("sign_up", {
-		title: config.site.name
+		script: "sign_up"
 	});
 };
 

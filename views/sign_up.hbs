@@ -2,7 +2,25 @@
 
 	<div id="post">
 		<h1>{{get_name}} wants you!</h1>
-		<p class="lead">{{get_name}} wants you to sign up to be a zombie.  Also, we aren't going to pay you because of some very specific wording in your contact.  Suck it zombie.</p>
+		<p class="lead">{{get_name}} is looking for individuals to help test our cutting edge research into unlocking human potential.  To be considered for the research study, you must meet the following criteria:</p>
+		<ul>
+			<li>You must be at least 18 years of age.</li>
+			<li>You must have a computer and an internet connection capable of streaming videos.</li>
+			<li>You must hold {{get_name}} harmless of any side effects that may occur during the course of the research study.</li>
+		</ul>
+		<form>
+			Do you consent to {{get_name}} monitoring you throughout the duration of the experiment?<br>
+			I consent <input type="checkbox" name="sf_agree_watch" value="yes"><br><br>
+
+			Do you understand that {{get_name}} may withhold compensation until a time where the experiment’s criteria is met?<br>
+			I understand <input type="checkbox" name="sf_understand_not_paid" value="yes"><br><br>
+
+			Do you believe that you are your own person, and that your actions are your own?<br>
+			I am my own person <input type="checkbox" name="sf_not_culpable" value="yes"><br><br>
+
+			Email Address: <input type="email" name="sf_email_address"><br><br>
+			<input id="sf-signup" type="submit" value="Submit">
+		</form>
 	</div>
 
 </div><!-- /.container -->
