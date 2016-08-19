@@ -16,6 +16,7 @@ a:hover	{color:#225799; text-decoration:none;}
 
 #holder		{width:100%; padding:20px 0 5px 0; background:#FFFFFF; text-align:left; }
 #logo		{border-bottom:1px solid #DADADA; padding:5px 30px 20px 0px; }
+#logo-image		{float: left;}
 #navigation	{padding:10px 0; }
 #header		{background:#DADADA; padding:10px; text-align: center;}
 #header-image		{max-width: 100%; max-height: 100%;}
