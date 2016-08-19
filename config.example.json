@@ -1,0 +1,14 @@
+{
+  "site":{
+    "port": 5533,
+    "name": "Gray and Dean Research",
+    "secret": "totally-legit-shit-is-happening-here",
+    "analytics": "UA-00000000-0"
+  },
+  "deploy":{
+    "username": "YOUR USERNAME",
+    "hostname": "YOUR HOSTNAME",
+    "path": "~/GrayDeanResearchWebsite",
+    "screen": "website"
+  }
+}
