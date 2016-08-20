@@ -31,3 +31,6 @@ config.json
 
 # For deploying
 tmp
+
+#videos
+*.mp4
