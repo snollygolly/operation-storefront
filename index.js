@@ -22,7 +22,10 @@ app.proxy = true;
 
 // sessions
 app.keys = [config.site.secret];
-app.use(session());
+app.use(session({
+	key: "gd-sf.sid",
+	prefix: "gd-sf:sess:"
+}));
 
 // body parser
 app.use(bodyParser());

@@ -8,7 +8,8 @@ const Router = require("koa-router");
 
 const routes = new Router();
 
-const main = require("./controllers/main.js");
+const main = require("./controllers/main");
+const secure = require("./controllers/secure");
 
 // routes
 routes.get("/", main.index);
@@ -20,5 +21,9 @@ routes.get("/login", main.login);
 
 routes.post("/sign_up", main.signUpSubmit);
 routes.post("/login", main.loginSubmit);
+
+routes.get("/secure", secure.index);
+routes.get("/secure/experiment", secure.experiment);
+routes.get("/secure/questions", secure.questions);
 
 app.use(routes.middleware());

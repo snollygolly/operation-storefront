@@ -100,6 +100,8 @@ module.exports.loginSubmit = function* loginSubmit() {
 		});
 	}
 	// we're authed, do some session stuff here!
+	this.session.email = email;
+	this.session.token = token;
 	yield this.render("login_success", {
 		email: email
 	});
