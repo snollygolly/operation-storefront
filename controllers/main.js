@@ -56,10 +56,6 @@ module.exports.signUpSubmit = function* signUpSubmit() {
 	});
 };
 
-module.exports.signUpConfirm = function* signUpConfirm() {
-	yield this.render("sign_up");
-};
-
 module.exports.login = function* login() {
 	yield this.render("login", {
 		script: "login"
@@ -107,10 +103,6 @@ module.exports.loginSubmit = function* loginSubmit() {
 	yield this.render("login_success", {
 		email: email
 	});
-};
-
-module.exports.signUpConfirm = function* signUpConfirm() {
-	yield this.render("sign_up");
 };
 
 function isEmail(email) {

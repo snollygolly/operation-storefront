@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="icon" href="/assets/favicon.ico">
+<title>{{get_name}}</title>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
+</head>
+
+<body>
+{{> analytics}}
+<div id="container">
+	<div id="holder" class="clearfix">
+		<div id="logo">
+			<a id="logo-link" href="/">
+				<img id="logo-image" src="/assets/images/logo.png"><h1>{{get_name}}</h1>
+			</a>
+	  </div>
+		{{> secure_navbar}}
+		<div id="header">
+			<img id="header-image" src="/assets/images/header_home.jpg">
+		</div>
+		<div id="content">
+			{{{body}}}
+		</div>
+	</div>
+	{{> footer}}
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+{{#if script}}
+	<script src="/assets/js/{{script}}.js"></script>
+{{/if}}
+</body>
+</html>
