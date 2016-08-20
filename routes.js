@@ -19,5 +19,6 @@ routes.get("/sign_up", main.signUp);
 routes.get("/login", main.login);
 
 routes.post("/sign_up", main.signUpSubmit);
+routes.post("/login", main.loginSubmit);
 
 app.use(routes.middleware());

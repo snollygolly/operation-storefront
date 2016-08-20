@@ -21,5 +21,9 @@ module.exports = {
 		}
 		// they do exist
 		return true;
+	},
+	getSubject: function* getSubject(email) {
+		const document = yield db.getDocument(email, "subjects");
+		return document;
 	}
 };

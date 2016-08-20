@@ -2,7 +2,18 @@
 
 	<div id="post">
 		<h1>{{get_name}} subjects access only!</h1>
-		<p class="lead">Sign in or whatever.</p>
+		<p class="lead">Before logging into the research subject portal, make sure you'd done the following things:</p>
+		<ul>
+			<li>You've signed up to particate in our test study <a href="/sign_up">here</a></li>
+			<li>You've received an email from us that said you were accepted</a></li>
+			<li>You have a code from that email that you were told to use</a></li>
+		</ul>
+		Unauthorized access of this system is strictly prohibited.
+		<form id="sf-form" action="/login" method="post">
+			Email Address: <input type="text" name="sf_email_address"><br>
+			Token: <input type="text" name="sf_token"><br>
+			<input id="sf-login" type="submit" value="Login">
+		</form>
 	</div>
 
 </div><!-- /.container -->
