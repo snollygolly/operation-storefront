@@ -43,7 +43,9 @@ module.exports.experiment = function* experiment() {
 		});
 	}
 	// proceed with logic
-	yield this.render("secure/experiment");
+  yield this.render("secure/experiment", {
+    script: "secure/experiment"
+  });
 };
 
 module.exports.questions = function* questions() {
