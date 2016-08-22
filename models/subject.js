@@ -25,5 +25,9 @@ module.exports = {
 	getSubject: function* getSubject(email) {
 		const document = yield db.getDocument(email, "subjects");
 		return document;
+	},
+	getSubjectsByStage: function* getSubjectsByStage(stage) {
+		const subjects = yield db.runView("listings/stage", stage, "subjects");
+		return subjects;
 	}
 };
