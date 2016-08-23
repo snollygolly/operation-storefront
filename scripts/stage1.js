@@ -26,17 +26,23 @@ co(function* co() {
 	const totalSubjects = subjects.length;
 	// see how many are actually getting in
 	const acceptedSubjects = Math.ceil(ACCEPT_PERC * totalSubjects);
+	console.log(`* ${acceptedSubjects}/${totalSubjects} accepted into study`);
 	// now prune subjects that didn't make the cut (FIFO)
 	while (subjects.length > acceptedSubjects) {
 		const subject = subjects.pop();
+		// tell them via email that they didn't make it
 		const message = yield sendEmail(subject, false);
 	}
 	// loop through the subject to send email to them
 	for (const subject of subjects) {
 		const message = yield sendEmail(subject, true);
+		// now update the DB with each accepted subject
+		const document = yield Subject.setStage(subject.id, 2);
+		if (document.error === true) {
+			throw new Error(document.message);
+		}
 	}
-	console.log(subjects);
-
+	console.log(`* ${totalSubjects} notified via email`);
 }).catch((err) => {
 	console.error(err);
 });

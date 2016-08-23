@@ -29,5 +29,14 @@ module.exports = {
 	getSubjectsByStage: function* getSubjectsByStage(stage) {
 		const subjects = yield db.runView("listings/stage", stage, "subjects");
 		return subjects;
+	},
+	setStage: function* setStage(id, stage) {
+		const document = yield db.getDocument(id, "subjects");
+		if (document.error === true) {
+			return document;
+		}
+		document.stage = stage;
+		const confirmation = yield db.saveDocument(document, "subjects");
+		return confirmation;
 	}
 };
