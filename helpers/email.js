@@ -1,3 +1,5 @@
+const config = require("../config.json");
+
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
 	transport: "ses",
@@ -8,7 +10,10 @@ const transporter = nodemailer.createTransport({
 exports.sendMail = function* sendMail(message) {
 	try {
 		const data = {
-			from: "donotreply@graydeanresearch.com",
+			from: {
+				name: "Gray and Dean Research",
+				address: "donotreply@graydeanresearch.com"
+			},
 			to: message.rcpt,
 			subject: message.subject,
 			html: message.body

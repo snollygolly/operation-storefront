@@ -5,6 +5,12 @@
     "secret": "totally-legit-shit-is-happening-here",
     "analytics": "UA-00000000-0"
   },
+  "plugins":{
+    "ses":{
+      "access_key": "XXX",
+      "secret_key": "XXX"
+    }
+  },
   "deploy":{
     "username": "YOUR USERNAME",
     "hostname": "YOUR HOSTNAME",
