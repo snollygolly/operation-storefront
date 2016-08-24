@@ -2,7 +2,13 @@
 
 	<div id="post">
 		<h1>{{get_name}} wants to hear from you!</h1>
-		<p class="lead">{{get_name}} cares about your feedback.  Send us a message with this contact form that we haven't built yet.</p>
+		<form id="contact-form" action="/contact" method="post">
+			Please keep in mind that we're a small team of researchers, and it may take us some time to reply to emails.<br><br>
+			This is important: <input type="checkbox" name="contact_important" value="yes"><br><br>
+			Email Address: <input type="email" name="contact_email_address"><br>
+			Message: <br><textarea name="contact_message" rows="8" cols="39"></textarea><br><br>
+			<input id="contact-submit" type="submit" value="Submit">
+		</form>
 	</div>
 
 </div><!-- /.container -->

@@ -4,6 +4,14 @@ The main website for Gray and Dean Research.
 ## Prerequisites
 * [Node.js](https://nodejs.org/en/) (Version 5 and up recommended)
 * [Github Client ID and Secret](https://github.com/settings/developers) (for OAuth)
+* [CouchDB](http://couchdb.apache.org/)
+
+### Setup
+
+The following databases need to be made in CouchDB
+
+* subjects (for storing information about subjects)
+* messages (for storing information from the contact form)
 
 ### Installation
 

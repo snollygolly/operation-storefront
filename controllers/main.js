@@ -107,6 +107,41 @@ module.exports.loginSubmit = function* loginSubmit() {
 	});
 };
 
+module.exports.contactSubmit = function* contactSubmit() {
+	// some basic error checking
+	if (!this.request.body.contact_email_address) {
+		return yield this.render("error", {
+			message: "You must provide a email address"
+		});
+	}
+	// save the email into a shorter var
+	// const email = this.request.body.contact_email_address;
+	if (isEmail(email) === false) {
+		return yield this.render("error", {
+			message: "You must provide a valid email address"
+		});
+	}
+	if (!this.request.body.contact_message) {
+		return yield this.render("error", {
+			message: "You must provide a message"
+		});
+	}
+	if (!this.request.body.contact_important) {
+		return yield this.render("error", {
+			message: "You must agree that this message is important"
+		});
+	}
+	const document = yield Message.newMessage(this.request.body);
+	if (document.error === true) {
+		return yield this.render("error", {
+			message: document.message
+		});
+	}
+	yield this.render("sign_up_success", {
+		email: email
+	});
+};
+
 function isEmail(email) {
 	const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email);
