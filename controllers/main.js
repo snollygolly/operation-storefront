@@ -1,6 +1,7 @@
 "use strict";
 
 const Subject = require("../models/subject");
+const Message = require("../models/message");
 
 module.exports.index = function* index() {
 	yield this.render("index");
@@ -115,7 +116,7 @@ module.exports.contactSubmit = function* contactSubmit() {
 		});
 	}
 	// save the email into a shorter var
-	// const email = this.request.body.contact_email_address;
+	const email = this.request.body.contact_email_address;
 	if (isEmail(email) === false) {
 		return yield this.render("error", {
 			message: "You must provide a valid email address"
@@ -126,6 +127,10 @@ module.exports.contactSubmit = function* contactSubmit() {
 			message: "You must provide a message"
 		});
 	}
+	// sanitize the input
+	const message = this.request.body.contact_message.replace(/[^\w\s]/gi, "");
+	// set it back
+	this.request.body.contact_message = message;
 	if (!this.request.body.contact_important) {
 		return yield this.render("error", {
 			message: "You must agree that this message is important"
@@ -137,7 +142,7 @@ module.exports.contactSubmit = function* contactSubmit() {
 			message: document.message
 		});
 	}
-	yield this.render("sign_up_success", {
+	yield this.render("contact_success", {
 		email: email
 	});
 };

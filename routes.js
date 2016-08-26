@@ -21,6 +21,7 @@ routes.get("/login", main.login);
 
 routes.post("/sign_up", main.signUpSubmit);
 routes.post("/login", main.loginSubmit);
+routes.post("/contact", main.contactSubmit);
 
 routes.get("/secure", secure.index);
 routes.get("/secure/experiment", secure.experiment);
