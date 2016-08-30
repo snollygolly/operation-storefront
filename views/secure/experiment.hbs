@@ -4,14 +4,12 @@
 
 	<div id="post">
 		<h1>Experiment</h1>
-		<p class="lead">Watch this and be our zombies.  kthx</p>
+		<p class="lead">Please watch the entire video and pay close attention.  Thank you.</p>
 		<span id="output">
-        <!-- TODO: have specific video served to the user or display no content available -->
-        <!-- maybe even use a get request to see the video? maybe... -->
-			<video id="secureVid" autoplay="autoplay">
+			<video id="sf-trigger-video" width="640" height="360" preload="auto" autoplay controls poster="/assets/images/logo.png">
 				<source src="{{video}}" type="video/mp4">
-					Your browser does not support HTML5 video.
-				</video>
-			</span>
+				Your browser does not support HTML5 video.
+			</video>
+		</span>
 	</div>
 </div><!-- /.container -->

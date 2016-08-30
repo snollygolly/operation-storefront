@@ -27,26 +27,28 @@ module.exports.index = function* index() {
 
 module.exports.experiment = function* experiment() {
 	// error checking
-	if (!this.session.email || !this.session.token) {
-		return yield this.render("error", {
-			message: "You must be authenticated"
-		});
-	}
-	const subject = yield Subject.getSubject(this.session.email);
-	if (subject.error === true) {
-		return yield this.render("error", {
-			message: "You must be enrolled in the study"
-		});
-	}
-	if (subject.token !== this.session.token) {
-		return yield this.render("error", {
-			message: "Bad credentials"
-		});
-	}
+	// if (!this.session.email || !this.session.token) {
+	// 	return yield this.render("error", {
+	// 		message: "You must be authenticated"
+	// 	});
+	// }
+	// const subject = yield Subject.getSubject(this.session.email);
+	// if (subject.error === true) {
+	// 	return yield this.render("error", {
+	// 		message: "You must be enrolled in the study"
+	// 	});
+	// }
+	// if (subject.token !== this.session.token) {
+	// 	return yield this.render("error", {
+	// 		message: "Bad credentials"
+	// 	});
+	// }
+	const video = s3.getURL("draft2.mp4");
+	console.log(video);
 	// proceed with logic
 	yield this.render("secure/experiment", {
 		script: "secure/experiment",
-		video: s3.getURL()
+		video: video
 	});
 };
 

@@ -1,9 +1,6 @@
 $(document).ready(function() {
-
-	$("#output").text("Please wait while the video is loaded...");
-
-  $("#secureVid").on("ended", function() {
-    // when super secret zombie video ends send zombie soldier to questions better to probably do this more securely...
-    document.location.href = "/secure/questions";
-  });
+	$("#sf-trigger-video").on("ended", function() {
+		// RP: this should be secure enough, doubt there's any master hackers out there :P
+		document.location.href = "/secure/questions";
+	});
 });
