@@ -1,26 +1,26 @@
 {
-  "site":{
-    "port": 5533,
-    "name": "Gray and Dean Research",
-    "secret": "totally-legit-shit-is-happening-here",
-    "analytics": "UA-00000000-0"
-  },
-  "plugins":{
-    "ses":{
-      "access_key": "XXX",
-      "secret_key": "XXX"
-    },
+	"site":{
+		"port": 5533,
+		"name": "Gray and Dean Research",
+		"secret": "totally-legit-shit-is-happening-here",
+		"analytics": "UA-00000000-0"
+	},
+	"plugins":{
+		"ses":{
+			"access_key": "XXX",
+			"secret_key": "XXX"
+		},
 		"aws":{
 			"access_key": "XXX",
 			"secret_key": "XXX",
 			"bucket_name": "XXX",
 			"region": "XXX"
 		}
-  },
-  "deploy":{
-    "username": "YOUR USERNAME",
-    "hostname": "YOUR HOSTNAME",
-    "path": "~/GrayDeanResearchWebsite",
-    "screen": "website"
-  }
+	},
+	"deploy":{
+		"username": "YOUR USERNAME",
+		"hostname": "YOUR HOSTNAME",
+		"path": "~/GrayDeanResearchWebsite",
+		"screen": "website"
+	}
 }
