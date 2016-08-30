@@ -1,6 +1,7 @@
 "use strict";
 
 const Subject = require("../models/subject");
+const s3 = require("../helpers/s3");
 
 module.exports.index = function* index() {
 	// error checking
@@ -43,9 +44,10 @@ module.exports.experiment = function* experiment() {
 		});
 	}
 	// proceed with logic
-  yield this.render("secure/experiment", {
-    script: "secure/experiment"
-  });
+	yield this.render("secure/experiment", {
+		script: "secure/experiment",
+		video: s3.getURL()
+	});
 };
 
 module.exports.questions = function* questions() {
