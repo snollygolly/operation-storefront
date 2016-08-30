@@ -43,7 +43,7 @@ module.exports.experiment = function* experiment() {
 			message: "Bad credentials"
 		});
 	}
-	const video = s3.getURL("draft2.mp4");
+	const video = s3.getURL("storefront-trigger-video-3931.mp4");
 	console.log(video);
 	// proceed with logic
 	yield this.render("secure/experiment", {
