@@ -27,4 +27,6 @@ routes.get("/secure", secure.index);
 routes.get("/secure/experiment", secure.experiment);
 routes.get("/secure/questions", secure.questions);
 
+routes.post("/secure/questions", secure.questionsSubmit);
+
 app.use(routes.middleware());

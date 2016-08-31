@@ -5,6 +5,19 @@
 	<div id="post">
 		<h1>Questionnaire</h1>
 		<p class="lead">Answer some questions</p>
+		<form id="sf-questions" action="/secure/questions" method="post">
+			{{#each questions}}
+				<p class="sf-question">{{this.question}}</p>
+				{{#each this.answers}}
+				<input type="radio" class="sf-answer" name="{{../this.id}}" value="{{this}}">
+				<label for="{{../this.id}}">{{this}}</label>
+				<br/>
+				{{/each}}
+				<hr>
+			{{/each}}
+		</form>
+		<br><br>
+		<button id="submit">Submit</button>
 	</div>
 
 </div><!-- /.container -->
