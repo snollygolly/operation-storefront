@@ -12,6 +12,7 @@ The following databases need to be made in CouchDB
 
 * subjects (for storing information about subjects)
 * messages (for storing information from the contact form)
+* answers (for storing stats about questions)
 
 ### Installation
 

@@ -2,8 +2,8 @@
 
 const Subject = require("../models/subject");
 const s3 = require("../helpers/s3");
-const qs = require("../models/questions.json");
-const ans = require("../models/questions");
+const questionsJSON = require("../models/questions.json");
+const Question = require("../models/questions");
 
 module.exports.index = function* index() {
 	// error checking
@@ -56,49 +56,61 @@ module.exports.experiment = function* experiment() {
 
 module.exports.questions = function* questions() {
 	// error checking
-	if (!this.session.email || !this.session.token) {
-		return yield this.render("error", {
-			message: "You must be authenticated"
-		});
-	}
-
-	if (this.session.answered == true) {
-		return yield this.render("error", {
-			message: "You have already answered the questionairre"
-		});
-	}
-
-	const subject = yield Subject.getSubject(this.session.email);
-	if (subject.error === true) {
-		return yield this.render("error", {
-			message: "You must be enrolled in the study"
-		});
-	}
-	if (subject.token !== this.session.token) {
-		return yield this.render("error", {
-			message: "Bad credentials"
-		});
-	}
+	// if (!this.session.email || !this.session.token) {
+	// 	return yield this.render("error", {
+	// 		message: "You must be authenticated"
+	// 	});
+	// }
+	//
+	// if (this.session.answered == true) {
+	// 	return yield this.render("error", {
+	// 		message: "You have already answered the questionairre"
+	// 	});
+	// }
+	//
+	// const subject = yield Subject.getSubject(this.session.email);
+	// if (subject.error === true) {
+	// 	return yield this.render("error", {
+	// 		message: "You must be enrolled in the study"
+	// 	});
+	// }
+	// if (subject.token !== this.session.token) {
+	// 	return yield this.render("error", {
+	// 		message: "Bad credentials"
+	// 	});
+	// }
 	// proceed with logic
 	yield this.render("secure/questions", {
 		script: "secure/questions",
-		data: qs
+		questions: questionsJSON
 	});
 };
 
-module.exports.submit = function* questions() {
-	const params = this.request.body;
-	if (!params.answers) {
-		this.status = 400;
-		return this.body = {error: true, message: "Answers were not found!"};
+module.exports.questionsSubmit = function* questionsSubmit() {
+	// some basic error checking
+	// loop through each ID of each answer they provided and make sure it's valid
+	for (const answer in this.request.body) {
+		// if this isn't a valid id, bounce them
+		if (Question.isValidQuestion(answer) !== true) {
+			return yield this.render("error", {
+				message: "All questions must be valid"
+			});
+		}
+		if (Question.isValidAnswer(answer, this.request.body[answer]) !== true) {
+			return yield this.render("error", {
+				message: "All answers must be valid"
+			});
+		}
 	}
-	const saveAnswers = yield ans.saveAnswers(this.session.id, params.answers);
-	if (saveAnswers.error === true) {
-		this.status = 400;
-		return this.body = {error: true, message: order.message};
+	// actually save the results
+	const document = yield Question.saveAllAnswers(this.session.id, this.request.body);
+	if (document.error === true) {
+		return yield this.render("error", {
+			message: "Something went wrong saving your questions"
+		});
 	}
 	// save answered to session.
 	this.session.answered = true;
 	// return result
-	return this.body = saveAnswers;
+	yield this.render("secure/questions_success", {});
 };
