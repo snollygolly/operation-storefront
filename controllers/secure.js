@@ -88,7 +88,6 @@ module.exports.questions = function* questions() {
 
 module.exports.submit = function* questions() {
 	const params = this.request.body;
-	this.session.id = "testid";
 	if (!params.answers) {
 		this.status = 400;
 		return this.body = {error: true, message: "Answers were not found!"};
