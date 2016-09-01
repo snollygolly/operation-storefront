@@ -37,7 +37,8 @@
     "node-uuid": "^1.4.7",
     "nodemailer": "^2.5.0",
     "nodemailer-ses-transport": "^1.4.0",
-    "passport-github": "^1.0.0"
+    "passport-github": "^1.0.0",
+    "twilio": "^2.9.2"
   },
   "devDependencies": {
     "nodemon": "^1.10.2",

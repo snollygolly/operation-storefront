@@ -205,7 +205,6 @@ module.exports.phoneSubmit = function* phoneSubmit() {
 			message: "You must provide a phone number"
 		});
 	}
-	console.log(this.request.body.sf_phone_number);
 	// super basic checking for the phone number because i'm tired
 	if (this.request.body.sf_phone_number.length !== 14) {
 		return yield this.render("error", {

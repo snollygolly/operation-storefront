@@ -15,6 +15,11 @@
 			"secret_key": "XXX",
 			"bucket_name": "XXX",
 			"region": "XXX"
+		},
+		"twilio":{
+			"account_sid": "XXX",
+			"auth_token": "XXX",
+			"from_number": "+15055966010"
 		}
 	},
 	"deploy":{

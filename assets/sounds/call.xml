@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+	<Play>http://graydeanresearch.com/assets/sounds/outbound-call-trigger-3931A.mp3</Play>
+	<Pause length="2"/>
+	<Say>Goodbye.</Say>
+</Response>

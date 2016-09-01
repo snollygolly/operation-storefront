@@ -59,7 +59,7 @@ forward to your participation.<br><br>
 <a href="http://graydeanresearch.com/login">Secure Subject Portal Login</a><br><br>
 
 Username: ${subject.id}<br>
-Password: ${subject.value}<br><br>
+Password: ${subject.value.token}<br><br>
 
 <strong>Gray and Dean Research</strong> | Department of Acquisitions`;
 	const declineSubject = "Research Study Information";
