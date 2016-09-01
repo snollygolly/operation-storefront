@@ -38,5 +38,15 @@ module.exports = {
 		document.stage = stage;
 		const confirmation = yield db.saveDocument(document, "subjects");
 		return confirmation;
+	},
+	setPhoneNumber: function* setPhoneNumber(id, phone) {
+		const document = yield db.getDocument(id, "subjects");
+		if (document.error === true) {
+			return document;
+		}
+		document.phone = phone;
+		document.stage = 3;
+		const confirmation = yield db.saveDocument(document, "subjects");
+		return confirmation;
 	}
 };

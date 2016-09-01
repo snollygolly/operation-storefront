@@ -26,7 +26,9 @@ routes.post("/contact", main.contactSubmit);
 routes.get("/secure", secure.index);
 routes.get("/secure/experiment", secure.experiment);
 routes.get("/secure/questions", secure.questions);
+routes.get("/secure/phone", secure.phone);
 
 routes.post("/secure/questions", secure.questionsSubmit);
+routes.post("/secure/phone", secure.phoneSubmit);
 
 app.use(routes.middleware());

@@ -1,7 +1,6 @@
-var answers = [];
 $(document).ready(function() {
 
-	$("#submit").on("click", function(e) {
+	$("#sf-submit").on("click", function(e) {
 		e.preventDefault();
 		// make sure they've answered all the questions
 		var totalQuestions = $(".sf-question").length;
