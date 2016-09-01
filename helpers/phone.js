@@ -9,7 +9,7 @@ exports.makeCall = function* makeCall(number) {
 		const call = yield client.makeCall({
 			to: `+1${number}`,
 			from: `+1${config.plugins.twilio.from_number}`,
-			url: "http://graydeanresearch.com/assets/sounds/call.twiml",
+			url: "http://graydeanresearch.com/assets/sounds/call.xml",
 			method: "GET"
 		});
 		call.error = false;
