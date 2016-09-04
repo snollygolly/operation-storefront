@@ -14,6 +14,16 @@ The following databases need to be made in CouchDB
 * messages (for storing information from the contact form)
 * answers (for storing stats about questions)
 
+We also have a view that we run that looks like this:
+```
+function(doc) {
+  key = doc.stage
+  emit(key, {token: doc.token, phone: doc.phone});
+}
+```
+
+It's saved as `_design/listings/stage`
+
 ### Installation
 
 * Clone down the repository.
