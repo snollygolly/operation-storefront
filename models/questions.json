@@ -42,7 +42,7 @@
 		]
 	},
 	{
-		"id": "sf-you-want-kill-someone",
+		"id": "sf-you-kill-someone-again",
 		"question": "Would you kill someone?",
 		"answers": [
 			"Yes", "No"
