@@ -1,5 +1,12 @@
 [
 	{
+		"id": "sf-tree-bird",
+		"question": "Would you rather be a tree or a bird?",
+		"answers": [
+			"Tree", "Bird"
+		]
+	},
+	{
 		"id": "sf-good-person",
 		"question": "Do you consider yourself a good person?",
 		"answers": [
@@ -46,55 +53,6 @@
 		"question": "You are your own person.",
 		"answers": [
 			"Yes"
-		]
-	},
-	{
-		"id": "sf-tree-bird",
-		"question": "Would you rather be a tree or a bird?",
-		"answers": [
-			"Tree", "Bird"
-		]
-	},
-	{
-		"id": "sf-scared",
-		"question": "Have you ever been scared?",
-		"answers": [
-			"Yes", "No"
-		]
-	},
-	{
-		"id": "sf-really-scared",
-		"question": "Have you ever been really scared?",
-		"answers": [
-			"Yes", "No"
-		]
-	},
-	{
-		"id": "sf-really-scared-now",
-		"question": "Are you scared right now?",
-		"answers": [
-			"Yes", "No"
-		]
-	},
-	{
-		"id": "sf-watched",
-		"question": "Do you ever get the feeling that you're being watched?",
-		"answers": [
-			"Yes", "No"
-		]
-	},
-	{
-		"id": "sf-watched-now",
-		"question": "Do you feel like you're being watched right now?",
-		"answers": [
-			"Yes", "No"
-		]
-	},
-	{
-		"id": "sf-bird-tree",
-		"question": "Would you rather be a bird or a tree",
-		"answers": [
-			"Bird", "Tree"
 		]
 	}
 ]
