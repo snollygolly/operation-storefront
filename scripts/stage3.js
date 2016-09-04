@@ -58,7 +58,7 @@ function* sendEmail(subject, accepted) {
 	const declineSubject = "Research Study Information - Update";
 	const declineEmail = `Hello,<br><br>
 
-	We're sorry to inform you that you will not be moving forward to phase 2 of our research study.  Not everyone is right for the kind of work we do, and unfortunately, you didn't respond in the way needed for you to progress to the next phase.  We thank you for your time.<br><br>
+	We're sorry to inform you that you will not be moving forward to phase 2 of our research study.  Not everyone is right for the kind of work we do, and unfortunately, we did not feel your responses met the requirements to progress to the next phase of our study.  We thank you for your time.<br><br>
 
 <strong>Gray and Dean Research</strong> | Department of Compensation`;
 
