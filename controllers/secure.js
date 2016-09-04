@@ -45,6 +45,11 @@ module.exports.experiment = function* experiment() {
 			message: "Bad credentials"
 		});
 	}
+	if (subject.stage !== 2) {
+		return yield this.render("error", {
+			message: "You are not able to view this content"
+		});
+	}
 	const video = s3.getURL("storefront-trigger-video-3931.mp4");
 	// proceed with logic
 	yield this.render("secure/experiment", {
@@ -66,7 +71,6 @@ module.exports.questions = function* questions() {
 			message: "You have already answered the questionnaire"
 		});
 	}
-
 	const subject = yield Subject.getSubject(this.session.email);
 	if (subject.error === true) {
 		return yield this.render("error", {
@@ -76,6 +80,11 @@ module.exports.questions = function* questions() {
 	if (subject.token !== this.session.token) {
 		return yield this.render("error", {
 			message: "Bad credentials"
+		});
+	}
+	if (subject.stage !== 2) {
+		return yield this.render("error", {
+			message: "You are not able to view this content"
 		});
 	}
 	// proceed with logic
@@ -111,7 +120,7 @@ module.exports.questionsSubmit = function* questionsSubmit() {
 	}
 	if (subject.stage !== 2) {
 		return yield this.render("error", {
-			message: "You are in the wrong stage"
+			message: "You are not able to view this content"
 		});
 	}
 	// loop through each ID of each answer they provided and make sure it's valid
@@ -163,6 +172,11 @@ module.exports.phone = function* phone() {
 	if (subject.token !== this.session.token) {
 		return yield this.render("error", {
 			message: "Bad credentials"
+		});
+	}
+	if (subject.stage !== 2) {
+		return yield this.render("error", {
+			message: "You are not able to view this content"
 		});
 	}
 	// proceed with logic
