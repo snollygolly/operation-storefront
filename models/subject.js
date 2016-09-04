@@ -48,5 +48,15 @@ module.exports = {
 		document.stage = 3;
 		const confirmation = yield db.saveDocument(document, "subjects");
 		return confirmation;
+	},
+	terminateSubject: function* terminateSubject(id) {
+		const document = yield db.getDocument(id, "subjects");
+		if (document.error === true) {
+			return document;
+		}
+		// basically, change their password so they can't login any more
+		document.token = uuid.v4();
+		const confirmation = yield db.saveDocument(document, "subjects");
+		return confirmation;
 	}
 };
