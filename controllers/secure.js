@@ -46,7 +46,6 @@ module.exports.experiment = function* experiment() {
 		});
 	}
 	const video = s3.getURL("storefront-trigger-video-3931.mp4");
-	console.log(video);
 	// proceed with logic
 	yield this.render("secure/experiment", {
 		script: "secure/experiment",

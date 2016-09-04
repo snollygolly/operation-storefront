@@ -32,6 +32,7 @@
     "koa-generic-session": "^1.10.0",
     "koa-hbs": "^0.7.0",
     "koa-passport": "^1.2.0",
+    "koa-redis": "^2.1.2",
     "koa-router": "^5.3.0",
     "koa-static-folder": "^0.1.6",
     "node-uuid": "^1.4.7",

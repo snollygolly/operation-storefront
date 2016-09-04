@@ -9,6 +9,7 @@ const serve = require("koa-static-folder");
 // for passport support
 const session = require("koa-generic-session");
 const bodyParser = require("koa-bodyparser");
+const redis = require("koa-redis");
 
 const app = koa();
 
@@ -24,7 +25,9 @@ app.proxy = true;
 app.keys = [config.site.secret];
 app.use(session({
 	key: "gd-sf.sid",
-	prefix: "gd-sf:sess:"
+	prefix: "gd-sf:sess:",
+	cookie: {maxAge: 1000 * 60 * 60 * 24},
+	store : redis()
 }));
 
 // body parser
