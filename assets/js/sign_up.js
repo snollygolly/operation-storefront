@@ -23,7 +23,7 @@ $( document ).ready(function() {
 			return alert("You must believe that you are your own person");
 		}
 		// make sure they gave us a valid email address
-		var subjectEmail = $("input[name='sf_email_address']").val();
+		var subjectEmail = $("input[name='sf_email_address']").val().toLowerCase();
 		if (subjectEmail.length <= 5 || isEmail(subjectEmail) === false) {
 			return alert("You must provide a valid email address");
 		}

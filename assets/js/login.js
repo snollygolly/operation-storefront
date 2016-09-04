@@ -6,7 +6,7 @@ $( document ).ready(function() {
 	$("#sf-login").on("click", function(e) {
 		e.preventDefault();
 		// make sure they gave us a valid email address
-		var subjectEmail = $("input[name='sf_email_address']").val();
+		var subjectEmail = $("input[name='sf_email_address']").val().toLowerCase();
 		if (subjectEmail.length <= 5 || isEmail(subjectEmail) === false) {
 			return alert("You must provide a valid email address");
 		}
