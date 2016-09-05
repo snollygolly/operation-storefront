@@ -2,6 +2,16 @@
 
 const config = require("./config.json");
 
+require("appdynamics").profile({
+	controllerHostName: "evilmousestudios.saas.appdynamics.com",
+	controllerPort: 443,
+	accountName: config.plugins.appdynamics.account_name,
+	accountAccessKey: config.plugins.appdynamics.account_access_key,
+	applicationName: config.plugins.appdynamics.application_name,
+	tierName: config.plugins.appdynamics.tier_name,
+	nodeName: "process"
+});
+
 const koa = require("koa");
 const hbs = require("koa-hbs");
 const serve = require("koa-static-folder");

@@ -20,6 +20,12 @@
 			"account_sid": "XXX",
 			"auth_token": "XXX",
 			"from_number": "+15055966010"
+		},
+		"appdynamics":{
+			"account_name": "XXX",
+			"account_access_key": "XXX",
+			"application_name": "Gray and Dean Research",
+			"tier_name": "Website"
 		}
 	},
 	"deploy":{

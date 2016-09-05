@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/snollygolly/operation-storefront#readme",
   "dependencies": {
+    "appdynamics": "^4.2.4",
     "aws-sdk": "^2.5.2",
     "bluebird": "^3.4.1",
     "co": "^4.6.0",
