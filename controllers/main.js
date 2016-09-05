@@ -28,29 +28,21 @@ module.exports.signUp = function* signUp() {
 module.exports.signUpSubmit = function* signUpSubmit() {
 	// some basic error checking
 	if (!this.request.body.sf_email_address) {
-		return yield this.render("error", {
-			message: "You must provide a email address"
-		});
+		return this.throw(400, "You must provide an email address");
 	}
 	// save the email into a shorter var
 	const email = this.request.body.sf_email_address;
 	if (isEmail(email) === false) {
-		return yield this.render("error", {
-			message: "You must provide a valid email address"
-		});
+		return this.throw(400, "You must provide a valid email address");
 	}
 	// check to see if this subject already exists
 	const subjectExists = yield Subject.checkSubject(email);
 	if (subjectExists === true) {
-		return yield this.render("error", {
-			message: "You are already enrolled in the study"
-		});
+		return this.throw(400, "You are already enrolled in the study");
 	}
 	const document = yield Subject.newSubject(email);
 	if (document.error === true) {
-		return yield this.render("error", {
-			message: document.message
-		});
+		return this.throw(500, document.message);
 	}
 	yield this.render("sign_up_success", {
 		email: email
