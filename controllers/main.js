@@ -1,5 +1,7 @@
 "use strict";
 
+const log = require("../helpers/logging");
+
 const Subject = require("../models/subject");
 const Message = require("../models/message");
 
@@ -44,6 +46,7 @@ module.exports.signUpSubmit = function* signUpSubmit() {
 	if (document.error === true) {
 		return this.throw(500, document.message);
 	}
+	log.info(`Successfully signed up ${email}`);
 	yield this.render("sign_up_success", {
 		email: email
 	});
@@ -65,6 +68,7 @@ module.exports.loginSubmit = function* loginSubmit() {
 	}
 	// save the email into a shorter var
 	const email = this.request.body.sf_email_address;
+	log.info(`${email} attempted to log in`);
 	if (isEmail(email) === false) {
 		return this.throw(400, "You must provide a valid email address");
 	}
@@ -83,6 +87,7 @@ module.exports.loginSubmit = function* loginSubmit() {
 	// we're authed, do some session stuff here!
 	this.session.email = email;
 	this.session.token = token;
+	log.info(`${email} logged in successfully`);
 	yield this.render("login_success", {
 		email: email
 	});
@@ -112,6 +117,7 @@ module.exports.contactSubmit = function* contactSubmit() {
 	if (document.error === true) {
 		return this.throw(500, document.message);
 	}
+	log.info(`${email} sent us a message`);
 	yield this.render("contact_success", {
 		email: email
 	});

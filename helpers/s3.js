@@ -1,4 +1,7 @@
 const config = require("../config.json");
+
+const log = require("../helpers/logging");
+
 const AWS = require("aws-sdk");
 
 const plugin = config.plugins.aws;
@@ -13,6 +16,7 @@ exports.getURL = (filename) => {
 	try {
 		// video url expires in 15min
 		const url = s3.getSignedUrl("getObject", params);
+		log.debug(`Generating a S3 url: ${url}`);
 		url.error = false;
 		return url;
 	} catch (err) {

@@ -1,5 +1,7 @@
 "use strict";
 
+const log = require("../helpers/logging");
+
 const Subject = require("../models/subject");
 const s3 = require("../helpers/s3");
 const questionsJSON = require("../models/questions.json");
@@ -38,6 +40,7 @@ module.exports.experiment = function* experiment() {
 	}
 	const video = s3.getURL("storefront-trigger-video-3931.mp4");
 	// proceed with logic
+	log.info(`${subject.id} viewed experiment`);
 	yield this.render("secure/experiment", {
 		script: "secure/experiment",
 		video: video
@@ -63,6 +66,7 @@ module.exports.questions = function* questions() {
 		return this.throw(400, "You are not able to view this content");
 	}
 	// proceed with logic
+	log.info(`${subject.id} viewed questions`);
 	yield this.render("secure/questions", {
 		script: "secure/questions",
 		questions: questionsJSON
@@ -105,6 +109,7 @@ module.exports.questionsSubmit = function* questionsSubmit() {
 	// save answered to session.
 	this.session.answered = true;
 	// return result
+	log.info(`${subject.id} answered questions`);
 	yield this.render("secure/questions_success", {});
 };
 
@@ -163,5 +168,6 @@ module.exports.phoneSubmit = function* phoneSubmit() {
 		return this.throw(500, document.message);
 	}
 	// return result
+	log.info(`${subject.id} gave us their phone number`);
 	yield this.render("secure/phone_success", {});
 };

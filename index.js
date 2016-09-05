@@ -21,6 +21,7 @@ const serve = require("koa-static-folder");
 const session = require("koa-generic-session");
 const bodyParser = require("koa-bodyparser");
 const redis = require("koa-redis");
+const log = require("./helpers/logging");
 
 const app = koa();
 
@@ -62,6 +63,12 @@ app.use(function* error(next) {
 	} catch (err) {
 		if (err.status) {
 			this.status = err.status;
+		}
+		const code = parseInt(this.status);
+		if (code >= 400 && code <= 499) {
+			log.warn(`Code: ${code}: ${err.message}`);
+		} else {
+			log.error(`Code: ${code}: ${err.message}`);
 		}
 		yield this.render("error", {
 			message: err
