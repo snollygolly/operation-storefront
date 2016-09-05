@@ -1,8 +1,9 @@
+const config = require("../config.json");
 const bunyan = require("bunyan");
 
 let streams;
 
-if (process.env.NODE_ENV != "test") {
+if (config.site.production !== true) {
 	streams = [{
 		stream: process.stdout,
 		level: "trace"

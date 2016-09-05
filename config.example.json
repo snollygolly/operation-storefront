@@ -1,6 +1,7 @@
 {
 	"site":{
 		"port": 5533,
+		"production": false,
 		"name": "Gray and Dean Research",
 		"secret": "totally-legit-shit-is-happening-here",
 		"analytics": "UA-00000000-0"
