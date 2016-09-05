@@ -66,39 +66,27 @@ module.exports.login = function* login() {
 module.exports.loginSubmit = function* loginSubmit() {
 	// some basic error checking
 	if (!this.request.body.sf_email_address) {
-		return yield this.render("error", {
-			message: "You must provide a email address"
-		});
+		return this.throw(400, "You must provide a email address");
 	}
 	if (!this.request.body.sf_token) {
-		return yield this.render("error", {
-			message: "You must provide a token"
-		});
+		return this.throw(400, "You must provide a token");
 	}
 	// save the email into a shorter var
 	const email = this.request.body.sf_email_address;
 	if (isEmail(email) === false) {
-		return yield this.render("error", {
-			message: "You must provide a valid email address"
-		});
+		return this.throw(400, "You must provide a valid email address");
 	}
 	// check to see if is even a token
 	const token = this.request.body.sf_token;
 	if (token.length !== 36) {
-		return yield this.render("error", {
-			message: "You must provide a valid token"
-		});
+		return this.throw(400, "You must provide a valid token");
 	}
 	const document = yield Subject.getSubject(email);
 	if (document.error === true) {
-		return yield this.render("error", {
-			message: "No user found with that email address"
-		});
+		return this.throw(400, "No user found with that email address");
 	}
 	if (document.token !== token || document.id !== email) {
-		return yield this.render("error", {
-			message: "Incorrect email or token"
-		});
+		return this.throw(400, "Incorrect email or token");
 	}
 	// we're authed, do some session stuff here!
 	this.session.email = email;
@@ -111,36 +99,26 @@ module.exports.loginSubmit = function* loginSubmit() {
 module.exports.contactSubmit = function* contactSubmit() {
 	// some basic error checking
 	if (!this.request.body.contact_email_address) {
-		return yield this.render("error", {
-			message: "You must provide a email address"
-		});
+		return this.throw(400, "You must provide a email address");
 	}
 	// save the email into a shorter var
 	const email = this.request.body.contact_email_address;
 	if (isEmail(email) === false) {
-		return yield this.render("error", {
-			message: "You must provide a valid email address"
-		});
+		return this.throw(400, "You must provide a valid email address");
 	}
 	if (!this.request.body.contact_message) {
-		return yield this.render("error", {
-			message: "You must provide a message"
-		});
+		return this.throw(400, "You must provide a message");
 	}
 	// sanitize the input
 	const message = this.request.body.contact_message.replace(/[^\w\s]/gi, "");
 	// set it back
 	this.request.body.contact_message = message;
 	if (!this.request.body.contact_important) {
-		return yield this.render("error", {
-			message: "You must agree that this message is important"
-		});
+		return this.throw(400, "You must agree that this message is important");
 	}
 	const document = yield Message.newMessage(this.request.body);
 	if (document.error === true) {
-		return yield this.render("error", {
-			message: document.message
-		});
+		return this.throw(500, document.message);
 	}
 	yield this.render("contact_success", {
 		email: email

@@ -5,6 +5,7 @@ const config = require("./config.json");
 require("appdynamics").profile({
 	controllerHostName: "evilmousestudios.saas.appdynamics.com",
 	controllerPort: 443,
+	controllerSslEnabled: true,
 	accountName: config.plugins.appdynamics.account_name,
 	accountAccessKey: config.plugins.appdynamics.account_access_key,
 	applicationName: config.plugins.appdynamics.application_name,
@@ -59,9 +60,12 @@ app.use(function* error(next) {
 	try {
 		yield next;
 	} catch (err) {
-		this.status = err.status || 500;
-		this.body = err.message;
-		this.app.emit("error", err, this);
+		if (err.status) {
+			this.status = err.status;
+		}
+		yield this.render("error", {
+			message: err
+		});
 	}
 });
 
