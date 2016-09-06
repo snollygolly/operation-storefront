@@ -32,8 +32,8 @@ co(function* co() {
 		const subject = subjects.pop();
 		// tell them via email that they didn't make it
 		const message = yield sendEmail(subject, false);
-		const document = yield Subject.terminateSubject(subject.id);
-		const document = yield Subject.setStage(subject.id, 0);
+		let document = yield Subject.terminateSubject(subject.id);
+		document = yield Subject.setStage(subject.id, 0);
 	}
 	// loop through the subject to send email to them
 	for (const subject of subjects) {
