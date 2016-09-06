@@ -13,7 +13,7 @@ const email = require("../helpers/email");
 const co = require("co");
 
 // how many people get in
-const ACCEPT_PERC = 1.00;
+const ACCEPT_PERC = 0.85;
 
 co(function* co() {
 	// get all the subjects that are currently on this stage
@@ -32,6 +32,7 @@ co(function* co() {
 		const subject = subjects.pop();
 		// tell them via email that they didn't make it
 		const message = yield sendEmail(subject, false);
+		const document = yield Subject.setStage(subject.id, 0);
 	}
 	// loop through the subject to send email to them
 	for (const subject of subjects) {
