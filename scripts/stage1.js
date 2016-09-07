@@ -13,7 +13,7 @@ const email = require("../helpers/email");
 const co = require("co");
 
 // how many people get in
-const ACCEPT_PERC = 0.85;
+const ACCEPT_PERC = 0.50;
 
 co(function* co() {
 	// get all the subjects that are currently on this stage
