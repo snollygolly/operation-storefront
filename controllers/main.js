@@ -22,12 +22,11 @@ module.exports.jobs = function* jobs() {
 };
 
 module.exports.signUp = function* signUp() {
-	yield this.render("sign_up", {
-		script: "sign_up"
-	});
+	yield this.render("sign_up_closed");
 };
 
 module.exports.signUpSubmit = function* signUpSubmit() {
+	return this.throw(400, "The research study is no longer accepting applicants");
 	// some basic error checking
 	if (!this.request.body.sf_email_address) {
 		return this.throw(400, "You must provide an email address");
