@@ -1,5 +1,5 @@
-# Gray and Dean Research Website
-The main website for Gray and Dean Research.
+# Operation Storefront
+This project was part of an immersive horror experience posted on [/r/nosleep](https://www.reddit.com/r/nosleep/).  For more information about this project, please check out my blog post about it at [Evil Mouse Studios](http://evilmousestudios.com/immersive-horror-through-web-technologies/).
 
 ## Prerequisites
 * [Node.js](https://nodejs.org/en/) (Version 5 and up recommended)
